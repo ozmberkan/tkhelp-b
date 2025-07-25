@@ -2,7 +2,7 @@ import {
   registerService,
   loginService,
   meService,
-} from "../services/auth.service";
+} from "../services/auth.service.js";
 
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";

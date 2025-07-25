@@ -5,8 +5,8 @@ import {
   meController,
   refreshTokenController,
   registerController,
-} from "../controllers/auth.controller";
-import { authenticate } from "../middlewares/authenticate";
+} from "../controllers/auth.controller.js";
+import { authenticate } from "../middlewares/authenticate.js";
 
 const router = express.Router();
 

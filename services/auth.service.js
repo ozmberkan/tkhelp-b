@@ -1,4 +1,4 @@
-import { register, login, me } from "../repositories/auth.repo";
+import { register, login, me } from "../repositories/auth.repo.js";
 import bcrypt from "bcryptjs";
 
 export const registerService = async (data) => {

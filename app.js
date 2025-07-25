@@ -3,6 +3,9 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 
 import dotenv from "dotenv";
+//
+
+import authRoutes from "./routes/auth.route.js";
 
 dotenv.config();
 
@@ -16,6 +19,8 @@ app.use(
 );
 app.use(cookieParser());
 app.use(express.json());
+
+app.use("/api/auth", authRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log(
