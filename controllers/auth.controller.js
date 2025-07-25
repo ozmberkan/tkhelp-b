@@ -96,13 +96,15 @@ export const meController = async (req, res) => {
     const decoded = jwt.verify(accessToken, process.env.JWT_ACCESS_KEY);
     const user = await meService(decoded.email);
 
+    const { password, ...safeUser } = user;
+
     if (!user) {
       return res
         .status(404)
         .json({ success: false, message: "Kullanıcı bulunamadı." });
     }
 
-    return res.status(200).json({ success: true, user });
+    return res.status(200).json({ success: true, message: "", data: safeUser });
   } catch (error) {
     return res.status(400).json({ success: false, message: error.message });
   }
