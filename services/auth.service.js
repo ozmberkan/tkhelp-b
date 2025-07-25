@@ -6,6 +6,10 @@ export const registerService = async (data) => {
     if (!data.fullName || !data.email || !data.password) {
       throw new Error("Tüm alanlar zorunludur.");
     }
+
+    const hashedPassword = await bcrypt.hash(data.password, 10);
+    data.password = hashedPassword;
+
     const existingUser = await login(data.email);
     if (existingUser) {
       throw new Error("Bu e-posta adresi zaten kayıtlı.");
