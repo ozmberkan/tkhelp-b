@@ -13,7 +13,7 @@ const router = express.Router();
 router.post("/login", loginController);
 router.post("/register", registerController);
 router.get("/me", authenticate, meController);
-router.get("/logout", logoutController);
+router.post("/logout", logoutController);
 router.get("/refresh", authenticate, refreshTokenController);
 
 export default router;
